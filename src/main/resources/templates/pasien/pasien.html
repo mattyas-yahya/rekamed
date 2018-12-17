@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>Data Pasien</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+<h2>
+Data Pasien
+<small>Control panel</small>
+</h2>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Data Pasien</li>
+</ol>
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">  
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="tab_1">  
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelcok" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id pasien</th>
+<th>no ktp</th>    
+<th>nama</th>    
+<th>alamat </th>    
+<th>tanggal lahir</th>
+<th>umur</th>    
+<th>telp</th>    
+<th>kecamatan</th> 
+<th>nama ortu</th>    
+<th>alamat orang tua</th>    
+<th>pekerjaan</th>
+<th>agama</th>    
+<th>status nikah</th>    
+<th>jenis kelamin</th>
+</tr>
+</thead>
+<!-- Footer Table -->
+</table>
+
+<input type=hidden id="a" name="a" value=""/>
+<input type=hidden id="b" name="b" value=""/>
+<input type=hidden id="c" name="c" value=""/>
+<input type=hidden id="d" name="d" value=""/>
+<input type=hidden id="e" name="e" value=""/>
+<input type=hidden id="f" name="f" value=""/>
+<input type=hidden id="g" name="g" value=""/>
+<input type=hidden id="h" name="h" value=""/>
+<input type=hidden id="i" name="i" value=""/>
+<input type=hidden id="j" name="j" value=""/>
+<input type=hidden id="k" name="k" value=""/>
+<input type=hidden id="l" name="l" value=""/>
+<input type=hidden id="m" name="m" value=""/>
+<input type=hidden id="n" name="n" value=""/>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab_2">  
+<form data-toggle="validator" role="form" th:object="${pasien}" th:action="@{/comit}" method="post">   
+<div class="col-md-12">  
+<div class='box-header'>
+<div class="box-body">
+
+<div class="col-md-6">     
+<div class="form-group">
+<label for="nama">Id</label>
+<input type="text" class="form-control" th:field="*{id_pasien}" id="id_pasien" readonly />
+</div>
+<div class="form-group">
+<label for="nama">No Ktp</label>
+<input type="text" required="true" class="form-control" th:field="*{nok}" id="nok" />
+</div>
+<div class="form-group">
+<label for="nama">Nama</label>
+<input type="text" required="true" class="form-control" th:field="*{nama}" id="nama" name="nama" placeholder="Masukkan Nama"/>
+</div>
+<div class="form-group">
+<label for="nama">Alamat</label>
+<input type="text" class="form-control" required="true" th:field="*{alamat}" id="alamat" name="alamat" placeholder="Masukkan alamat"/>
+</div>
+<div class="form-group">
+<label for="nama">Tanggal Lahir</label>
+<input type="text" class="form-control" required="true" th:field="*{tgl_lhr}" id="tgl_lhr" name="tgl_lhr" placeholder="yyyy-mm-dd" data-date-format="yyyy-mm-dd"/>
+</div>
+<div class="form-group">
+<label for="nama">Umur</label>
+<input type="text" class="form-control" required="true" th:field="*{umur}" id="umur" name="umur" placeholder="Masukkan umur"/>
+</div>
+<div class="form-group">
+<label for="nama">Telpon</label>
+<input type="text" class="form-control" required="true" th:field="*{telp}" id="telp" name="telp" placeholder="Masukkan telpon"/>
+</div>  
+</div>
+
+<div class="col-md-6"> 
+<div class="form-group">
+<label for="nama">kecamatan</label>
+<input type="text" class="form-control" required="true" th:field="*{kecamatan}" id="kecamatan" name="kecamatan" />
+</div>
+<div class="form-group">
+<label for="nama">Nama Orang Tua</label>
+<input type="text" class="form-control" required="true" th:field="*{n_ortu}" id="n_ortu" name="n_ortu" placeholder="Masukkan Nama Orang Tua "/>
+</div>
+<div class="form-group">
+<label for="nama">Alamat Orang tua</label>
+<input type="text" class="form-control" required="true" th:field="*{alamat_ortu}" id="alamat_ortu" name="alamat_ortu" placeholder="Masukkan alamat ortu"/>
+</div>
+<div class="form-group">
+<label for="nama">Pekerjaan</label>
+<input type="text" class="form-control" required="true" th:field="*{pekerjaan}" id="pekerjaan" name="pekerjaan" placeholder="Masukkan pekerjaan"/>
+</div>
+<div class="form-group">
+<label for="nama">agama</label>
+<input type="text" class="form-control" required="true" th:field="*{agama}" id="agama" name="agama" placeholder="Masukkan agama"/>
+</div>
+<!--<div class="form-group">
+<label for="nama">Status Nikah</label>
+<input type="text" class="form-control" required="true" th:field="*{stat_nikah}" id="stat_nikah" name="stat_nikah" placeholder="Masukkan Status Nikah"/>
+</div>-->
+
+<div class="form-group">
+<label for="nama">Status Nikah</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<select th:field="*{stat_nikah}" class="form-control" required="true">
+<option th:each="type : ${pasien}" th:value="'kawin'" th:text="kawin">kawin</option>
+<option th:each="type : ${pasien}"  th:value="'belum_kawin'" th:text="belum_kawin">Belum kawin</option>
+</select>
+</div>  
+</div>
+    
+<div class="form-group">
+<label for="nama">Jenis Kelamin</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<select th:field="*{jekel}" class="form-control" required="true">
+<option th:each="type : ${pasien}" th:value="'pria'" th:text="pria">Pria</option>
+<option th:each="type : ${pasien}"  th:value="'wanita'" th:text="Wanita">Wanita</option>
+</select>
+</div>  
+</div>
+    
+    </div>
+</div>
+</div>
+</div>
+<button class="btn btn-vimeo btn-md"  type="submit" value="save" name="action">save</button>
+<button class="btn btn-vimeo btn-md"  type="submit" value="edit" name="action">edit</button>
+<button class="btn btn-vimeo btn-md"  type="submit" value="delete" name="action">delete</button>     
+</form>
+</div>
+</div>
+</div>
+</div>
+</div> 
+
+</body>
+</html>

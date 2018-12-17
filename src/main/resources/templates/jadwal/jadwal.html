@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>Data Dokter</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+<h2>
+Data Dokter
+<small>Control panel</small>
+</h2>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Data Dokter</li>
+</ol>
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">  
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="tab_1">  
+<div class="box-body">
+<div id='calendar'></div>
+</div>
+</div>
+<div class="tab-pane" id="tab_2">  
+<form data-toggle="validator" role="form" th:object="${jadwal}" th:action="@{/komite}" method="post">   
+<div class="col-md-12">  
+<div class='box-header'>
+<div class="box-body">
+ <span th:replace="rawat_jalan/modal_pasien"/>   
+    <span th:replace="rawat_jalan/modal_dokter"/>   
+<div class="col-md-6">     
+    <div class="form-group">
+<label for="nama">Id jadwal</label>
+<input type="text" class="form-control" th:field="*{id_jadwal}" id="id_jadwal" readonly />
+</div>
+<div class="form-group">
+<label for="nama">Id dokter</label>
+<input type="text" class="form-control" th:field="*{id_dokter}" id="id_dokter" readonly />
+</div>
+<div class="form-group">
+<label for="nama">Dokter</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" required="true" class="form-control" th:field="*{nama}" id="nama" />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modok" data-toggle="modal">Select</button>
+</span>
+</div>
+</div>
+<div class="form-group">
+<label for="nama">Start</label>
+<input type="text" class="form-control" required="true" th:field="*{mulai}" id="mulai" name="mulai" placeholder="Masukkan alamat"/>
+</div>
+    <div class="form-group">
+<label for="nama">End</label>
+<input type="text" class="form-control" required="true" th:field="*{selesai}" id="selesai" name="selesai" placeholder="Masukkan alamat"/>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<button class="btn btn-vimeo btn-md"  type="submit" value="save" name="aksi">save</button>   
+</form>
+</div>
+</div>
+</div>
+</div>
+</div> 
+</body>
+
+</html>
