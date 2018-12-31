@@ -6,7 +6,10 @@
 package com.example.repo;
 
 import com.example.model.Pasien;
+import com.example.model.Pasien;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -15,5 +18,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface repo_pasien extends JpaRepository<Pasien, String>
 {
-    
+       @Query(value = "select * count(id_pasien) as cid from pasien", nativeQuery = true)
+List<Pasien> c_pasien();
 }

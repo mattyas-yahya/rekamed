@@ -19,4 +19,7 @@ public interface repo_rawat extends JpaRepository<rawat_jalan, String>
 {
     @Query(value = "select  id_rawat_jalan,alamat,anamnesia,bayar,checked,diagnosa,dokter,klinik,nama,nok,riwayat_penyakit,terapi,tgl_berobat,id_pasien from rawat_jalan", nativeQuery = true)
 List<rawat_jalan> findAllData();
+
+//    @Query(value = "SELECT max(nama_penyakit)FROM as mx rawat_jalan;", nativeQuery = true)
+//    List<rawat_jalan> mPenyakit();
 }

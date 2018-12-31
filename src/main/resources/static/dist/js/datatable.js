@@ -18,7 +18,7 @@ $(document).ready( function ()
 {
 var table = $('#tabelcok').DataTable({
 "sAjaxSource": "/pasienAll",
-"scrollY":"200px",
+    "scrollY":"50vh",
 "scrollX": "200px",
 "sAjaxDataProp": "",
 "order": [[ 0, "asc" ]],
@@ -46,7 +46,7 @@ $(document).ready( function ()
 {
 var tablex = $('#tabelrj').DataTable({
 "sAjaxSource": "/rawat_jalan_All",
-"scrollY":"200px",
+"scrollY":"50vh",
 "scrollX": "200px",
 "sAjaxDataProp": "",
 "order": [[ 0, "asc" ]],
@@ -185,7 +185,7 @@ $(document).ready( function ()
 {
 var tablex = $('#tabelmodarkon').DataTable({
 "sAjaxSource": "/rawat_jalan_All",
-"scrollY":"200px",
+    "scrollY":"50vh",
 "scrollX": "200px",
 "sAjaxDataProp": "",
 "order": [[ 0, "asc" ]],
@@ -208,6 +208,45 @@ var tablex = $('#tabelmodarkon').DataTable({
 { "mData": "terapi"}
 ]
 });
+});
+
+//tabel dashboard utnuk id
+$(document).ready( function ()
+{
+var tablex = $('#tabelid').DataTable
+({
+"sAjaxSource": "/c_pasien",
+"scrollCollapse": true,
+"bInfo" : false,
+"searching": false,
+"paging":         false,
+"sAjaxDataProp": "",
+"order": [[ 0, "asc" ]],
+"aoColumns": 
+        [
+{ "mData": "id"}
+]
+});
+$('#tabelid').on('load', 'tr', function() 
+{
+  table.row(this).nodes().to$().addClass('larger-font');
+}) ;
+});
+
+ $(document).ready( function ()
+{
+    $ajax({
+        url: "/c_pasien",
+        method:'GET',
+        type:"JSON",
+        contentType:'application/json; charset=utf-8',
+        data:JSON.stringify(),
+        succes:function(data)
+        {
+           document.getElementById("divx").innerHTML = data.id;
+        }
+    });
+
 });
 ////tabel 
 //$(document).ready( function ()
