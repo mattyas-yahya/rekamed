@@ -80,12 +80,15 @@
                 
 <!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
 <!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
-<dependency>
-    <groupId>postgresql</groupId>
-    <artifactId>postgresql</artifactId>
-    <version>9.0-801.jdbc4</version>
-</dependency>
 
+
+		<dependency>
+  <groupId>postgresql</groupId>
+  <artifactId>postgresql</artifactId>
+  <version>9.1-901.jdbc4</version>
+</dependency>
+		
+		
 
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->
